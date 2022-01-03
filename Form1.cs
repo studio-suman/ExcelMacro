@@ -17,7 +17,9 @@ namespace ExcelMacro
         enum Trigger
         {
             Cancellation = 1,
-            MTB = 2
+            MTB = 2,
+            Churn = 3
+
         };
 
         private void run_Click(object sender, EventArgs e)
@@ -32,6 +34,11 @@ namespace ExcelMacro
                 if (mtbbutt.Checked)
                 {
                     macro_runner("BMT_Run");
+                }
+                if (churnbutt.Checked) 
+                {
+
+                    macro_runner("Churn_Prep");
                 }
             }
             else
@@ -86,7 +93,7 @@ namespace ExcelMacro
             OpenFileDialog open = new OpenFileDialog()
             {
                 FileName = "Select a Excel Macro file",
-                Filter = "Text files (*.xlsm)|*.xlsm",
+                Filter = "Macro files (*.xlsm)|*.xlsm",
                 Title = "Open Excel Macro File file"
             };
 
